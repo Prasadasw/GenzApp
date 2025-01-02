@@ -24,7 +24,7 @@ export default function App() {
             <Tab.Screen name='Gameselection' component={GameSelectionScreen} />
             <Tab.Screen name="Home" component={GameScreen} />
             <Tab.Screen name="Settings" component={SettingsScreen} />
-            
+            <Tab.Screen name="Settings" component={SettingsScreen} />
           </Tab.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>
