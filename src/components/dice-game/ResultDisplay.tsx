@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
 import { ACTIONS, BODY_PARTS } from '../../data/game-data';
+import { LinearGradient } from 'expo-linear-gradient';
 
 interface ResultDisplayProps {
   actionAngle: Animated.Value;
@@ -31,19 +32,27 @@ export function ResultDisplay({ actionAngle, bodyAngle }: ResultDisplayProps) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.resultText}>
-        {result.action} the {result.bodyPart}
-      </Text>
+      <LinearGradient
+        colors={['rgba(255,105,180,0.3)', 'rgba(255,20,147,0.3)']}
+        style={styles.gradient}
+      >
+        <Text style={styles.resultText}>
+          {result.action} the {result.bodyPart}
+        </Text>
+        <Text style={styles.emoji}>💕</Text>
+      </LinearGradient>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    padding: 20,
-    borderRadius: 15,
     marginTop: 20,
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
+  gradient: {
+    padding: 20,
     alignItems: 'center',
   },
   resultText: {
@@ -51,5 +60,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
+    textShadowColor: 'rgba(0,0,0,0.3)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
+  },
+  emoji: {
+    fontSize: 24,
+    marginTop: 10,
   },
 });

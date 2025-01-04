@@ -8,41 +8,51 @@ const { width } = Dimensions.get('window');
 
 export function CustomTabBar({ state, navigation }: BottomTabBarProps) {
   const insets = useSafeAreaInsets();
-  
+
   return (
     <View style={[styles.container, { paddingBottom: insets.bottom }]}>
       <View style={styles.content}>
-        <TouchableOpacity 
-          style={styles.tabButton} 
+        <TouchableOpacity
+          style={styles.tabButton}
           onPress={() => navigation.navigate('Home')}
         >
-          <Ionicons 
-            name={state.index === 0 ? "home" : "home-outline"} 
-            size={24} 
+          <Ionicons
+            name={state.index === 0 ? "home" : "home-outline"}
+            size={24}
             color={state.index === 0 ? "#FF6B6B" : "#666"}
           />
         </TouchableOpacity>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.tabButton}
           onPress={() => navigation.navigate('Settings')}
         >
-          <Ionicons 
-            name={state.index === 1 ? "settings" : "bar-chart-outline"} 
-            size={24} 
-            color={state.index === 1 ? "#FF6B6B" : "#666"}
-          />
-          </TouchableOpacity>
-
-        <TouchableOpacity 
-          style={styles.tabButton}
-          onPress={() => navigation.navigate('Gameselection')}
-         >
-          <Ionicons 
-            name={state.index === 1 ? "Gameselection" : "settings-outline"} 
-            size={24} 
+          <Ionicons
+            name={state.index === 1 ? "settings" : "bar-chart-outline"}
+            size={24}
             color={state.index === 1 ? "#FF6B6B" : "#666"}
           />
         </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.tabButton}
+          onPress={() => navigation.navigate('Gameselection')}
+        >
+          <Ionicons
+            name={state.index === 1 ? "Gameselection" : "settings-outline"}
+            size={24}
+            color={state.index === 1 ? "#FF6B6B" : "#666"}
+          />
+</TouchableOpacity>
+          <TouchableOpacity
+            style={styles.tabButton}
+            onPress={() => navigation.navigate('DiceGameScreen')}
+          >
+            <Ionicons
+              name={state.index === 1 ? "DiceGameScreen" : "bar-chart-outline"}
+              size={24}
+              color={state.index === 1 ? "#FF6B6B" : "#666"}
+            />
+          </TouchableOpacity>
       </View>
       {/* <ion-icon name="bar-chart-outline"></ion-icon> */}
     </View>

@@ -30,7 +30,7 @@ export default function GameSelectionScreen() {
       description: 'Send affectionate, cute, or even naughty notifications to your partners device, instantly capturing their attention.',
       icon: 'heart-half',
       colors: ['#FF9671', '#FFC75F'],
-      disabled: true,
+      disabled: false,
     }
   ];
 
@@ -58,7 +58,9 @@ export default function GameSelectionScreen() {
               if (game.id === 'scratch') {
                 navigation.navigate('Home');
               } else if (game.id === 'dice') {
-                navigation.navigate('DiceGame');
+                navigation.navigate('DicePlayerSetupScreen');
+              } else if (game.id == 'distance'){
+                navigation.navigate('GameTypeScreen');
               }
             }}
           />
